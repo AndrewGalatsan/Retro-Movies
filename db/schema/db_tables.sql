@@ -1,0 +1,38 @@
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS ordered_items CASCADE;
+DROP TABLE IF EXISTS movie_items CASCADE;
+DROP TABLE IF EXISTS movie_orders CASCADE;
+
+
+CREATE TABLE movie_items (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR (255) NOT NULL,
+  thumbnail_url VARCHAR (255) NOT NULL,
+  price INTEGER NOT NULL,
+  description TEXT,
+  category VARCHAR (255) NOT NULL
+);
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  phone VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE movie_orders (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP,
+  completed_at TIMESTAMP,
+  customer_notes TEXT,
+  status BOOLEAN NOT NULL DEFAULT FALSE
+  );
+
+CREATE TABLE ordered_items (
+  id SERIAL PRIMARY KEY NOT NULL,
+  order_id INTEGER REFERENCES movie_orders(id) ON DELETE CASCADE,
+  movie_item_id INTEGER REFERENCES movie_items(id),
+  qty INTEGER NOT NULL
+);
