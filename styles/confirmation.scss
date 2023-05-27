@@ -1,0 +1,111 @@
+:root {
+  // background colors
+  --background-theme-color: rgb(6, 4, 10);
+  --background-theme-color-2: rgb(29, 28, 31);
+  --background-theme-secondary-color: rgb(78, 78, 80, 0.5);
+  --background-theme-tertiary-color: whitesmoke;
+
+  // font colors
+  --font-color-primary: rgb(6, 4, 10);
+  --font-color-secondary: rgb(208, 205, 194);
+  --font-color-tertiary: rgb(78, 78, 80, 10);
+
+  // font-sizes
+  --font-size-header: 90px;
+  --font-size-headline: 60px;
+  --font-size-paragraph: 30px;
+  --font-size-button: 20px;
+}
+
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  color: var(--font-color-secondary);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--background-theme-secondary-color);
+  width: 100%;
+  margin-bottom: 100px;
+}
+article > .card-body {
+  border-right: 2px solid whitesmoke;
+  border-left: 2px solid whitesmoke;
+  border-bottom: 2px solid whitesmoke;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* header element */
+
+.checkout-container {
+  width: 55%;
+}
+.card-header {
+  width: 100%;
+  height: 100%;
+  color: var(--font-color-secondary);
+  margin-top: 120px;
+  background-color: var(--background-theme-secondary-color);
+  margin-bottom: 0px;
+  padding: 10px;
+  font-size: 25px;
+  border: 2px solid whitesmoke;
+
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 10px;
+}
+
+.col-md-4 {
+  border-bottom: 3px solid var(--background-theme-color);
+  width: 400px;
+}
+.col {
+  padding: 10px;
+  font-family: bold;
+  padding-left: 10px;
+  border-top : 2px solid whitesmoke   ;
+  font-size: 20px;
+  font-weight:bold;
+}
+
+li {
+  list-style: none;
+}
+
+.btn-warning {
+  background-color: var(--background-theme-color);
+  color: whitesmoke;
+  font-size: var(--font-size-button);
+  padding: 1%;
+  margin-left: 15%;
+  border: 1px solid var(--background-theme-tertiary-color);
+  border-radius: 2px;
+  margin-top: 10%;
+}
+
+.number{
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+.img-sm {
+  width: 300px;
+  border: 5px solid var(--background-theme-color);
+}

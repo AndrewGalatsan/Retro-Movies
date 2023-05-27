@@ -3,4 +3,72 @@
 body,
 html {
   margin: 0;
+  box-sizing: border-box;
+
+}
+
+header {
+width: 100vw;
+border-radius: 3px 3p 3px 3px;
+border-bottom:5px solid whitesmoke;
+color: black;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+align-items: center;
+position: fixed;
+top:0;
+height: 100px;
+background: var(--background-theme-color);
+font-family: 'Mr Dafoe', cursive;
+}
+
+.header-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly ;
+margin-left: 5%;
+
+}
+.header-btn {
+  display: inline;
+  margin-left:3%;
+  width:150px;
+  font-size: 20px;
+  border-left: 2px solid whitesmoke;
+
+}
+
+header > h1 {
+ color:white;
+
+  font-family: 'Mr Dafoe', cursive;
+  font-size:70px;
+  text-shadow: 1px 1px 2px var(--background-theme-color), 0 0 1em var(--background-theme-color-2), 0 0 0.3em whitesmoke;
+  opacity: 0.9;
+
+
+}
+
+header > form {
+  border-left: 5px solid whitesmoke;
+}
+
+
+
+.nav-logo{
+  width: 5%;
+};
+
+.reviews{
+  height: 50vh;
+}
+
+.about{
+  height: 50vh;
+}
+
+
+button:hover{
+    cursor:pointer;
 }
