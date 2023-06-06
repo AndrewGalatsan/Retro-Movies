@@ -32,8 +32,8 @@ app.use(express.static('public'));
 const usersRoutes = require('./routes/users');
 const confirmationRoutes = require('./routes/confirmation')
 const checkoutRoutes = require('./routes/checkout')
-const menuRoute = require('./routes/menu');
-
+const moviesRoute = require('./routes/movies');
+console.log("db", db)
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -41,7 +41,7 @@ const menuRoute = require('./routes/menu');
 app.use('/users', usersRoutes(db));
 app.use ('/confirmation', confirmationRoutes(db))
 app.use('/checkout', checkoutRoutes(db))
-app.use('/menu',menuRoute(db))
+app.use('/movies',moviesRoute(db))
 
 // Note: mount other resources here, using the same pattern above
 

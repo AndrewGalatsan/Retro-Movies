@@ -10,7 +10,8 @@ CREATE TABLE movie_items (
   thumbnail_url VARCHAR (255) NOT NULL,
   price INTEGER NOT NULL,
   description TEXT,
-  category VARCHAR (255) NOT NULL
+  category VARCHAR (255) NOT NULL,
+  year INTEGER NOT NULL
 );
 
 CREATE TABLE users (
@@ -26,13 +27,13 @@ CREATE TABLE movie_orders (
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP,
   completed_at TIMESTAMP,
-  customer_notes TEXT,
   status BOOLEAN NOT NULL DEFAULT FALSE
   );
 
 CREATE TABLE ordered_items (
   id SERIAL PRIMARY KEY NOT NULL,
-  order_id INTEGER REFERENCES movie_orders(id) ON DELETE CASCADE,
-  movie_item_id INTEGER REFERENCES movie_items(id),
+  order_id INTEGER REFERENCES movie_orders(id) ON DELETE CASCADE NOT NULL,
+  movie_item_id INTEGER REFERENCES movie_items(id) ON DELETE CASCADE NOT NULL,
+  showtimes VARCHAR(255) NOT NULL,
   qty INTEGER NOT NULL
 );

@@ -8,7 +8,7 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {         // non-AJAX route; returns full page of HTML
     console.log("test")
-    res.render("movie");
+    res.render("movies");
   });
 
   router.get("/1", (req, res) => {        // JSON-only route for AJAX GET

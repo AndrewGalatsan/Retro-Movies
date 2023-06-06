@@ -61,6 +61,7 @@ $(() => {
           <div class="aside"><img src="${item.image}" class="img-sm border"></div>
           <figcaption class="info align-self-center">
             <p class="title">${item.name}<br></p> <span class="text-muted">$${(item.price / 100)}</span>
+            <p class="showtime">${item.showtimes}</p>
             <input type="button" value="+" class="inc"/>
             <label class="display" data-product-id="${item.name}" id="${item.name}">${item.qty}</label>
             <input type="button" value="-" class="dec"/>
@@ -81,7 +82,7 @@ $(() => {
   })
     .done(res => {
       // Adding items to .ejs file.
-      let checkoutItems = res.menuItems;
+      let checkoutItems = res.movieItems;
       for (let item in checkoutItems) {
         const $checkoutItem = createCheckoutItemElement(checkoutItems[item]);
           $('#items_selected').append($checkoutItem);
@@ -104,14 +105,14 @@ $(() => {
         event.preventDefault();
         let customerName = $('#pickUpName').val()
         let customerPhone = $('#phone').val()
-        let customerNotes = $('#customerNotes').val()
+
         if ($('#pickUpName').val().length === 0  || $('#phone').val().length == 0) {
           alert("Please fill out Name and Phone number.")
         } else {
           $.ajax({
           method: 'POST',
           url: '/confirmation',
-          data: { itemInfo, subTotalPrice, customerName, customerPhone, customerNotes }
+          data: { itemInfo, subTotalPrice, customerName, customerPhone }
           })
           .done(() => {
           window.location.replace("/confirmation")

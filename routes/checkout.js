@@ -3,18 +3,19 @@ const router  = express.Router();
 
 
 module.exports = (db) => {
-  const menuItems = {};
+  const movieItems = {};
 
   router.post("/", (req, res) => {      // JSON-only route for AJAX POST
-    let selectedMenuItem = req.body;
-    const item_id = selectedMenuItem.item_id;
-    menuItems[item_id] = {};
-    menuItems[item_id].id = selectedMenuItem.item_id;
-    menuItems[item_id].name = selectedMenuItem.name;
-    menuItems[item_id].price = selectedMenuItem.price;
-    menuItems[item_id].qty = selectedMenuItem.qty;
-    menuItems[item_id].image = selectedMenuItem.image;
-
+    let selectedMovieItem = req.body;
+    const item_id = selectedMovieItem.item_id;
+    movieItems[item_id] = {};
+    movieItems[item_id].id = selectedMovieItem.item_id;
+    movieItems[item_id].name = selectedMovieItem.name;
+    movieItems[item_id].price = selectedMovieItem.price;
+    movieItems[item_id].qty = selectedMovieItem.qty;
+    movieItems[item_id].image = selectedMovieItem.image;
+    movieItems[item_id].showtimes = selectedMovieItem.showtimes;
+    console.log("selected", selectedMovieItem);
     res.end();
   })
 
@@ -25,7 +26,7 @@ module.exports = (db) => {
   });
 
   router.get("/1", (req, res) => {        // JSON-only route for AJAX GET
-    res.json({ menuItems })
+    res.json({ movieItems })
   })
 
   return router

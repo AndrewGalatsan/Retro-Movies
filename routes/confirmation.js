@@ -23,6 +23,7 @@ module.exports = (db) => {
       confirmedItems[item].id = items[item].id;
       confirmedItems[item].qty = Number(items[item].qty);
       confirmedItems[item].image = items[item].image;
+      confirmedItems[item].showtimes = items[item].showtimes;
       totalQuantity += confirmedItems[item].qty;
     }
     let subPrice = ((selectedMenuItem.subTotalPrice) / 100).toFixed(2);
@@ -31,17 +32,13 @@ module.exports = (db) => {
     prices.totPrice = totalPrice;
     customerInfo.name = selectedMenuItem.customerName
     customerInfo.phone = selectedMenuItem.customerPhone
-    customerInfo.notes = selectedMenuItem.customerNotes
 
 
     db.query(`INSERT INTO users (name, phone) VALUES ($1, $2) returning *`, [customerInfo.name, customerInfo.phone])
-              .then ( (data) => {
-                return db.query(`INSERT INTO movie_orders (user_id, customer_notes, status)
-              VALUES($1, $2, $3) returning *`, [data.rows[0].id, customerInfo.notes, false ])})
               .then((movieOrder) => {
                 for (let item in confirmedItems) {
-                  db.query(`INSERT INTO ordered_items (order_id, menu_item_id, qty)
-                  VALUES ($1, $2, $3)`, [movieOrder.rows[0].id, confirmedItems[item].id, confirmedItems[item].qty]);
+                  db.query(`INSERT INTO ordered_items (order_id, movie_item_id, showtimes, qty)
+                  VALUES ($1, $2, $3)`, [movieOrder.rows[0].id, confirmedItems[item].id, confirmedItems[item].showtimes, confirmedItems[item].qty]);
                 };
                 res.send('hello')
               })
