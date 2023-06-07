@@ -38,8 +38,7 @@ $(() => {
   //when click listener is heard on "+" button, incNumber() will be called for specific item.
   $('#items_selected').on('click', '.inc', function () {
     const productId = $(this).siblings('.display').data('productId')
-    console.log(productId)
-    console.log(typeof productId)
+
     console.log(itemInfo)
     incNumber(productId)
   })
@@ -92,6 +91,7 @@ $(() => {
           itemInfo[currentItem].qty = checkoutItems[item].qty;
           itemInfo[currentItem].price = checkoutItems[item].price;
           itemInfo[currentItem].image = checkoutItems[item].image;
+          itemInfo[currentItem].showtimes = checkoutItems[item].showtimes;
       }
       //calculate total cost from initial choices made in the menu page
       for (let item in itemInfo) {

@@ -21,19 +21,20 @@ CREATE TABLE users (
 );
 
 
-CREATE TABLE movie_orders (
+CREATE TABLE movie_orders ( 
   id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+  user_id INTEGER NOT NULL,
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP,
   completed_at TIMESTAMP,
-  status BOOLEAN NOT NULL DEFAULT FALSE
+  status BOOLEAN NOT NULL DEFAULT FALSE,
+  CONSTRAINT fk_users FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
   );
 
 CREATE TABLE ordered_items (
   id SERIAL PRIMARY KEY NOT NULL,
-  order_id INTEGER REFERENCES movie_orders(id) ON DELETE CASCADE NOT NULL,
-  movie_item_id INTEGER REFERENCES movie_items(id) ON DELETE CASCADE NOT NULL,
+  movie_item_id INTEGER NOT NULL,
   showtimes VARCHAR(255) NOT NULL,
-  qty INTEGER NOT NULL
-);
+  qty INTEGER NOT NULL,
+  CONSTRAINT fk_movie_orders FOREIGN KEY (order_id) REFERENCES movie_orders (id) ON DELETE CASCADE,
+  CONSTRAINT fk_movie_items FOREIGN KEY (movie_item_id) REFERENCES movie_items (id) ON DELETE CASCADE);
