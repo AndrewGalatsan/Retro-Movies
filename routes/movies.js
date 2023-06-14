@@ -7,7 +7,7 @@ const router = express.Router();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {         // non-AJAX route; returns full page of HTML
-    console.log("test")
+    console.log("test /movies", req.params)
     res.render("movies");
   });
 

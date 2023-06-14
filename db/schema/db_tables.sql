@@ -21,7 +21,7 @@ CREATE TABLE users (
 );
 
 
-CREATE TABLE movie_orders ( 
+CREATE TABLE movie_orders (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER NOT NULL,
   created_at TIMESTAMP DEFAULT NOW(),
@@ -33,6 +33,7 @@ CREATE TABLE movie_orders (
 
 CREATE TABLE ordered_items (
   id SERIAL PRIMARY KEY NOT NULL,
+  order_id INTEGER  NOT NULL,
   movie_item_id INTEGER NOT NULL,
   showtimes VARCHAR(255) NOT NULL,
   qty INTEGER NOT NULL,

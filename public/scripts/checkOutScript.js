@@ -89,6 +89,7 @@ $(() => {
           itemInfo[currentItem] = {};
           itemInfo[currentItem].id = checkoutItems[item].id;
           itemInfo[currentItem].qty = checkoutItems[item].qty;
+          itemInfo[currentItem].name = checkoutItems[item].name;
           itemInfo[currentItem].price = checkoutItems[item].price;
           itemInfo[currentItem].image = checkoutItems[item].image;
           itemInfo[currentItem].showtimes = checkoutItems[item].showtimes;

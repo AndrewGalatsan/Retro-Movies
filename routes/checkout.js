@@ -15,7 +15,7 @@ module.exports = (db) => {
     movieItems[item_id].qty = selectedMovieItem.qty;
     movieItems[item_id].image = selectedMovieItem.image;
     movieItems[item_id].showtimes = selectedMovieItem.showtimes;
-    console.log("selected", selectedMovieItem);
+    console.log("selected movie", selectedMovieItem);
     res.end();
   })
 

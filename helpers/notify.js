@@ -8,38 +8,45 @@ const app        = express();
 
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
-const twilioSMSAPI = (options) => {
+const twilioNotify = (user, movies) => {
   const accountSid = process.env.TWILIO_SID;
   const authToken = process.env.TWILIO_AUTH_TOKEN;
   const client = require("twilio")(accountSid, authToken);
-  console.log('test')
+  const options = {
+    text: `Thank you for choosing Retro-Flicks`,
+    movie: movies.name,
+    tickets: movies.qty,
+    showtime: movies.showtimes,
+  };
+
   // return function (options) {
     client.messages
       .create({
-        body: `${options.text}`,
-        from: "+15675871752",
-        to: "+16477782876",
+        body: `${options.text}, ${user}. You've ordered ${options.tickets} ticket(s) for the show of ${options.movie} at our ${options.showtime} showing. Enjoy!`,
+        from: "+13614016748",
+        to: `+16477782876`,
       })
       .then((message) => console.log(message.sid))
       .catch((error) => console.log(error));
   };
 // };
 
-const notifyOwner = () => {
+const notifyOwner = (user,movies) => {
   const options = {
-    text: `New Order is placed`
+    text: `Thank you for choosing Retro-Flicks`,
+    movie: movies.name,
+    user: user,
+    tickets: movies.qty,
+    showtime: movies.showtimes,
   };
-  twilioSMSAPI(options);
+  twilioNotify(options);
 };
 
 const notifyCustomerOrderConfirmed = (
-  id = 7,
-  waitTime = 15,
-  phoneNumber = "+16477782876"
 ) => {
   const options = {
-    text: `Your order will be ready in ${waitTime}!`,
-    phoneNumber: "+16477782876",
+    text: `Your order will be ready in`,
+
   };
   twilioSMSAPI(options);
 };
@@ -52,7 +59,9 @@ const notifyCustomerOrderReady = () => {
 };
 
 module.exports = {
+  twilioNotify,
   notifyOwner,
   notifyCustomerOrderConfirmed,
   notifyCustomerOrderReady,
 };
+
