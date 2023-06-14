@@ -29,39 +29,9 @@ const twilioNotify = (user, movies) => {
       .then((message) => console.log(message.sid))
       .catch((error) => console.log(error));
   };
-// };
 
-const notifyOwner = (user,movies) => {
-  const options = {
-    text: `Thank you for choosing Retro-Flicks`,
-    movie: movies.name,
-    user: user,
-    tickets: movies.qty,
-    showtime: movies.showtimes,
-  };
-  twilioNotify(options);
-};
-
-const notifyCustomerOrderConfirmed = (
-) => {
-  const options = {
-    text: `Your order will be ready in`,
-
-  };
-  twilioSMSAPI(options);
-};
-
-const notifyCustomerOrderReady = () => {
-  const options = {
-    text: `Your order is ready for a pickup.`,
-  };
-  twilioSMSAPI(options);
-};
 
 module.exports = {
   twilioNotify,
-  notifyOwner,
-  notifyCustomerOrderConfirmed,
-  notifyCustomerOrderReady,
 };
 
