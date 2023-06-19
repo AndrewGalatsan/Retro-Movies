@@ -31,25 +31,25 @@ $(() => {
               <p class="item-price">$ ${item.price / 100}</p>
 
 
-
+            <h3 class="showtime-heading" > Showtimes </h3>
             <label ><input   data-product-id="${item.id}  id="showtime-${
       item.id
-    }" name="showtime" type="radio" value="12:00"></input>12:00</label>
+    }" name="showtime" type="radio" value="12:00"></input>12:00 PM</label>
 
               
               <label><input   data-product-id="${item.id}  id="showtime-${
       item.id
-    }" name="showtime" type="radio" value="3:00"></input>3:00</label>
+    }" name="showtime" type="radio" value="3:00"></input>3:00 PM</label>
               
               
               <label><input   data-product-id="${item.id}  id="showtime-${
       item.id
-    }" name="showtime" type="radio" value="6:00"></input>6:00</label>
+    }" name="showtime" type="radio" value="6:00"></input>6:00 PM</label>
               
              
               <label> <input   data-product-id="${item.id}  id="showtime-${
       item.id
-    }" name="showtime" type="radio" value="9:00"></input>9:00</label>
+    }" name="showtime" type="radio" value="9:00"></input>9:00 PM</label>
            
 
             </div >
