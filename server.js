@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 const db = require('./db/connection')
 
+const stripePublishableKey = process.env.STRIPE_PUBLISHABLE_KEY;
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT

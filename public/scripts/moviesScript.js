@@ -19,9 +19,7 @@ function decNumber(item_id) {
 }
 
 $(() => {
-
   const createMenuItemElement = function (item) {
-
     const stringifiedItems = `
         <div class="menu_display">
           <img  class="user" src="${item.thumbnail_url}">
@@ -31,7 +29,29 @@ $(() => {
               <p class="item-description">${item.description}</p>
               <p class="item-description">${item.year}</p>
               <p class="item-price">$ ${item.price / 100}</p>
-              <input data-product-id="${item.id}" class="showtime-${item.id}" name="showtime" type="text" placeholder="showtime">${item.showtimes}</input>
+
+
+
+            <label ><input   data-product-id="${item.id}  id="showtime-${
+      item.id
+    }" name="showtime" type="radio" value="12:00"></input>12:00</label>
+
+              
+              <label><input   data-product-id="${item.id}  id="showtime-${
+      item.id
+    }" name="showtime" type="radio" value="3:00"></input>3:00</label>
+              
+              
+              <label><input   data-product-id="${item.id}  id="showtime-${
+      item.id
+    }" name="showtime" type="radio" value="6:00"></input>6:00</label>
+              
+             
+              <label> <input   data-product-id="${item.id}  id="showtime-${
+      item.id
+    }" name="showtime" type="radio" value="9:00"></input>9:00</label>
+           
+
             </div >
             <div class="menu_change">
               <div class="item_amount">
@@ -43,7 +63,9 @@ $(() => {
                 item.id
               })"/>
               </div>
-              <button data-product-id="${item.id}" class="add-to-cart" type="button" class="btn btn-success">Add To Cart</button>
+              <button data-product-id="${
+                item.id
+              }" class="add-to-cart" type="button" class="btn btn-success">Add To Cart</button>
             </div>
           </div>
         </div>
@@ -52,31 +74,37 @@ $(() => {
     return $(stringifiedItems);
   };
 
-
   $.ajax({
     method: "GET",
-    url: "/movies/1"
-  })
-    .done(res => {
+    url: "/movies/1",
+  }).done((res) => {
     let movieItems = res.templateVars;
     for (let item = 0; item < movieItems.length; item++) {
-        const $movieItem = createMenuItemElement(movieItems[item]);
-        $('#menu_item_main').append($movieItem);
+      const $movieItem = createMenuItemElement(movieItems[item]);
+      $("#menu_item_main").append($movieItem);
     }
-      $(".add-to-cart").click(function (event) {
-        console.log("this", this);
-        const movieID = $(this).data("product-id");
-        const showtimeValue = $(`.showtime-${movieID}`).val();
+    $(".add-to-cart").click(function (event) {
+      const movieID = $(this).data("product-id");
+      console.log("movieID", movieID);
+      const showtimeValue = $("input[name='showtime']:checked").val(); ;
+      console.log("showTimevalue", $("input[name='showtime']:checked"));
+      console.log("showTimevalue", showtimeValue);
 
-      const movieItemObject = movieItems.find(item => item.id === movieID);
-      let qty = Number(($(`.display[data-product-id='${movieID}']`)).text());
+      const movieItemObject = movieItems.find((item) => item.id === movieID);
+      let qty = Number($(`.display[data-product-id='${movieID}']`).text());
       event.preventDefault();
       $.ajax({
-        method: 'POST',
-        url: '/checkout',
-        data: { item_id: movieID, qty: qty, price: movieItemObject.price, name: movieItemObject.name, image:movieItemObject.thumbnail_url, showtimes: showtimeValue }
-      })
-
+        method: "POST",
+        url: "/checkout",
+        data: {
+          item_id: movieID,
+          qty: qty,
+          price: movieItemObject.price,
+          name: movieItemObject.name,
+          image: movieItemObject.thumbnail_url,
+          showtimes: showtimeValue,
+        },
+      });
     });
   });
 });

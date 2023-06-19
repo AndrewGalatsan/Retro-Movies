@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 
+var stripeHelper = 
 
 module.exports = (db) => {
   const movieItems = {};
