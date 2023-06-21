@@ -12,7 +12,7 @@ Lorem's checkout page, summarizes user's order...
 <br>
 <br>
 <br>
-### Once they input their number they will recieve 
+### Once they input their number they will recieve a text after the confirmation.
 User will recieve text messages letting them know they order is sent, and then another text when the order is ready for pick up. 
 !["Screenshot of Twilio Message"](https://github.com/AndrewGalatsan/Retro-Movies/blob/master/public/images/twilio.jpg?raw=true)
 <br>
