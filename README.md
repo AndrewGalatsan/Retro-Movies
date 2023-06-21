@@ -14,7 +14,7 @@ Lorem's checkout page, summarizes user's order...
 <br>
 ### Once they input their number they will recieve 
 User will recieve text messages letting them know they order is sent, and then another text when the order is ready for pick up. 
-!["Screenshot of Twilio Message"](https://github.com/AndrewGalatsan/Food-To-Go/blob/master/public/images/6-phone%20text.png?raw=true)
+!["Screenshot of Twilio Message"]([https://github.com/AndrewGalatsan/Food-To-Go/blob/master/public/images/6-phone%20text.png?raw=true)](https://github.com/AndrewGalatsan/Retro-Movies/blob/master/public/images/twilio.jpg?raw=true])
 <br>
 <br>
 <br>
