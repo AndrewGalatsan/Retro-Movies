@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Coda+Caption:800');
 :root {
   // background colors
   --background-theme-color: rgb(6, 4, 10);
@@ -5,6 +6,7 @@
   --background-theme-secondary-color: rgb(78, 78, 80, 0.5);
   --background-theme-secondary-color-opaque: rgb(78, 78, 80, 1);
   --background-theme-tertiary-color: whitesmoke;
+  --border-gradient: linear-gradient(to right, red, orange);
 
   // font colors
   --font-color-primary: rgb(6, 4, 10);
@@ -25,7 +27,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: var(--background-theme-color);
+  background-color:var(--background-theme-color);
   color: var(--font-color-secondary);
   font-family: "Nunito", sans-serif;
 }
@@ -64,24 +66,37 @@ main {
 
 .sidebar {
   display: flex;
+  -moz-text-fill-color: white;
+-webkit-text-fill-color: white;
+-moz-text-stroke-color: black;
+-webkit-text-stroke-color: gray;
+-moz-text-stroke-width: 3px;  
+-webkit-text-stroke-width: 3px;
+  color:white;
+  text-shadow: 5px gold;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 25%;
-  margin-left: 10px;
-  margin-right: 20px;
-  font-size: 50px;
+  width: 30%;
+  margin-left: 60px;
+  margin-right: 25px;
+  font-size: 40px;
   -webkit-text-stroke: 5% gray;
   background: none;
   background-color: rgba(0, 0, 0, 0);
   border-right: 2px solid whitesmoke;
-  border-bottom: 2px solid whitesmoke;
-  font-family: "Mr Dafoe", cursive;
+  border-left: 2px solid whitesmoke;
+  border-bottom: 5px solid whitesmoke;
+   box-shadow: -5px 0px 0px 0px white, 5px 0px 0px 0px white;
+  font-family: 'Coda Caption', sans-serif;
 }
 .sidebar > h3 {
-  width: 93%;
+  text-align: center;
+  width: 100%;
   margin-top: 0px;
-  margin-left: 7%;
+  margin-left: 0%;
+  padding: 0 10px;
+
   border-bottom: 5px solid whitesmoke;
 }
 button {
@@ -166,21 +181,7 @@ button {
   border: 5px solid var(--background-theme-color);
 }
 
-#pepperoni-img {
-  width: 90%;
-  height: auto;
-}
-.item-description{
-  font-size: 1.25em;
-  margin:2%;
-  height: 20%;
-}
-.menu-item-description {
-  font-size: 20px;
-  text-align: center;
-  align-items: center;
-  margin-top: 5%;
-}
+
 .box {
   display: inline-block;
   width: 30%;
@@ -191,9 +192,9 @@ button {
 // orders CSS and radio buttons
 
 .menu-order {
-  background-color: var(--background-theme-secondary-color);
+  background-color: var(--background-theme-color);
   padding: 1%;
-  border: 5px solid var(--background-theme-tertiary-color);
+
   width: 55%;
 }
 
@@ -219,10 +220,12 @@ button {
   display: grid;
   grid-template-rows: repeat(1fr);
   gap: 20px;
-  background-color: var(--background-theme-color);
+  background-color:var(--background-theme-color);
   align-items: center;
   width: 100%;
   height: auto;
+  border: 5px solid;
+  border-color: linear-gradient(to right, red, orange);
 }
 
 .menu_info {
@@ -284,43 +287,12 @@ button {
   margin-bottom: 10%;
   position: relative;
 }
-.about {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  width: 100%;
 
-  gap: 5%;
-  padding: 2%;
-  box-shadow: 0px 0px 0px 5px whitesmoke inset;
-  background-color: var(--background-theme-color);
-}
 
-.about-img {
-  width: 400px;
-  border-radius: 50%;
-  margin-right: 30%;
-  border: 5px solid whitesmoke;
-}
-.about-snippet {
-  width: 100%;
-  height: 75%;
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  align-items: center;
-  margin-top: 10%;
-  background-color: var(--background-theme-color);
 
-  padding: 2%;
-}
-
-.about-snippet > form {
-  background: transparent;
-}
 
 h4 {
-  font-family: "Mr Dafoe", cursive;
+  font-family: 'Coda Caption', sans-serif;
   font-size: 50px;
   font-weight: bold;
 }
@@ -391,7 +363,7 @@ h4 {
 
   width: 100%;
   // width: 400px;
-background-color: var(--background-theme-color-2);
+background-color:var(--background-theme-color-2);
   padding: 2%;
   text-align: center;
 }
@@ -437,39 +409,54 @@ h2 {
   position: relative;
 }
 .about {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  flex-direction: column;
+  grid-template-rows: 1fr ;
   width: 100%;
-
+  align-items: self-start;
   gap: 5%;
   padding: 2%;
-  box-shadow: 0px 0px 0px 5px whitesmoke inset;
+
   background-color: var(--background-theme-color);
+  height: 100vh;
+  margin-bottom: 120px;
 }
 
 .about-img {
-  width: 400px;
-  border-radius: 50%;
-  margin-right: 30%;
-  border: 5px solid whitesmoke;
+  width: 300px;
+  justify-self: left;
+  margin-right: 15%;
+  position: absolute;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
 }
 .about-snippet {
-  width: 100%;
-  height: 60%;
+  width: 70%;
+  height: 100%;
+  margin-left: 30%;
   font-size: 20px;
   display: flex;
   flex-direction: column;
   justify-self: center;
   align-items: center;
-  margin-top: 10%;
-  box-shadow: 0px 0px 2px 5px whitesmoke inset;
+  margin-top: 0%;
+  font-family: 'Coda Caption', sans-serif;
   background-color: var(--background-theme-color);
-
   padding: 2%;
 }
 
+.about-snippet > form {
+  background: transparent;
+}
+
+.about-snippet>p{
+  font-size: 20px;
+  color: white;
+}
+
+
 h4 {
-  font-family: "Mr Dafoe", cursive;
+  font-family: 'Coda Caption', sans-serif;
   font-size: 50px;
   font-weight: bold;
 }
@@ -490,6 +477,26 @@ h4 {
   margin-left: 10%;
   margin-right: 10%;
   background-color: var(--background-theme-color);
+}
+
+.header-btn-home{
+  font-family: 'Coda Caption', sans-serif;
+  display: inline;
+  margin-left:3%;
+  width:300px;
+   -moz-text-fill-color: white;
+  -webkit-text-fill-color: black;
+  -moz-text-stroke-color: black;
+  -webkit-text-stroke-color: gray;
+  -moz-text-stroke-width: 1px;  
+  -webkit-text-stroke-width: 0px;
+  color:red;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin-top: 5%;
+  font-size: 20px;
+  border: 5px solid black ;
+  box-shadow: none;
+  outline:2px solid white;
 }
 
 .container {

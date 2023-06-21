@@ -64,16 +64,14 @@
               <label for="pickUpName">Name: </label>
               <input type="text" class="user-name" id="pickUpName" name="customerName" class="form-control" id="formGroupExampleInput" placeholder="name" style="width: 250px; margin: 1em">
               <label for="phone">Phone: </label>
-              <input class="user-info" type="tel" name="customerPhone" id="phone" class="form-control" id="formGroupExampleInput2" placeholder="987-654-3210" style="width: 250px; margin: 1em">
+              <input class="user-info" type="tel" name="customerPhone" id="phone" class="form-control" id="formGroupExampleInput2" placeholder="( _ _ _ ) _ _ _ - _ _ _ _" style="width: 250px; margin: 1em">
             </div>
           </form>
           <input type="hidden" name="orderDetails" class="form-order-details" value='{}'></input>
           <hr>
-          <a href="/menu"class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to Menu</a>
-          <form action="checkout" method="post">
-            
-            <script src="https://checkout.stripe.com/v2/checkout.js" ></script>
-          </form>
+          
+          <a href="/movies"class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to Movies</a>
+        
           <a href="/confirmation" class="btn btn-warning" id="place-order" data-abc="true"> <i class="fa fa-chevron-right"></i> Place Order</a>
         </div>
 

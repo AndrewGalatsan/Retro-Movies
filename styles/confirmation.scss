@@ -1,4 +1,6 @@
-:root {
+@import url('https://fonts.googleapis.com/css?family=Coda+Caption:800');
+//   font-family: 'Coda Caption', sans-serif;
+root {
   // background colors
   --background-theme-color: rgb(6, 4, 10);
   --background-theme-color-2: rgb(29, 28, 31);
@@ -21,7 +23,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  color: var(--font-color-secondary);
+  color: white;
 }
 
 .container {
@@ -37,6 +39,7 @@ body {
   background-color: var(--background-theme-secondary-color);
   width: 100%;
   margin-bottom: 100px;
+  color: white;
 }
 article > .card-body {
   border-right: 2px solid whitesmoke;
@@ -46,12 +49,14 @@ article > .card-body {
 .card {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  color:white;
 }
 
 /* header element */
 
 .checkout-container {
-  width: 55%;
+  width: 65%;
 }
 .card-header {
   width: 100%;

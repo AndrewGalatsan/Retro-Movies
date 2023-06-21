@@ -32,9 +32,9 @@ $(() => {
 
 
             <h3 class="showtime-heading" > Showtimes </h3>
-            <label ><input   data-product-id="${item.id}  id="showtime-${
+            <label checked><input   data-product-id="${item.id}  id="showtime-${
       item.id
-    }" name="showtime" type="radio" value="12:00"></input>12:00 PM</label>
+    }" name="showtime" type="radio" value="12:00" ></input>12:00 PM</label>
 
               
               <label><input   data-product-id="${item.id}  id="showtime-${
